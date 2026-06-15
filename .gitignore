@@ -1,0 +1,14 @@
+# System Files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# IDEs/Editors
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
