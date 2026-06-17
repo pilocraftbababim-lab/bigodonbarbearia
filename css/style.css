@@ -1325,3 +1325,92 @@ ul, ol {
     }
 }
 
+/* ==========================================================================
+   COOKIE CONSENT BANNER (LGPD / AdSense Compliance)
+   ========================================================================== */
+.cookie-consent {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(0);
+    width: 90%;
+    max-width: 800px;
+    background-color: rgba(18, 18, 18, 0.92);
+    backdrop-filter: blur(15px);
+    border: 1px solid var(--border-accent);
+    padding: 25px 30px;
+    z-index: 9999;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+    transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s ease;
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+
+.cookie-consent.hide {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(30px);
+}
+
+.cookie-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+.cookie-text {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+.cookie-text a {
+    color: var(--accent);
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+.cookie-text a:hover {
+    color: var(--text-primary);
+}
+
+.cookie-btns {
+    display: flex;
+    gap: 15px;
+    flex-shrink: 0;
+}
+
+.cookie-btn-decline {
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.cookie-btn-decline:hover {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    color: var(--text-primary) !important;
+}
+
+@media (max-width: 768px) {
+    .cookie-consent {
+        bottom: 20px;
+        padding: 20px;
+    }
+    
+    .cookie-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+    }
+    
+    .cookie-text {
+        text-align: center;
+    }
+    
+    .cookie-btns {
+        justify-content: center;
+    }
+}
+
+

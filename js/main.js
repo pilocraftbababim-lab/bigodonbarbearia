@@ -100,4 +100,38 @@ document.addEventListener('DOMContentLoaded', () => {
         revealOnScroll.observe(element);
     });
 
+    // ==========================================
+    // COOKIE CONSENT BANNER (LGPD / AdSense Compliance)
+    // ==========================================
+    const cookieConsent = document.getElementById('cookie-consent');
+    const cookieAccept = document.getElementById('cookie-accept');
+    const cookieDecline = document.getElementById('cookie-decline');
+
+    if (cookieConsent && cookieAccept && cookieDecline) {
+        // Check if user already accepted or declined cookies
+        const consentStatus = localStorage.getItem('cookies-accepted');
+
+        if (!consentStatus) {
+            // Show banner after 1.5 seconds delay
+            setTimeout(() => {
+                cookieConsent.classList.remove('hide');
+            }, 1500);
+        } else {
+            // Keep hidden if status is set
+            cookieConsent.classList.add('hide');
+        }
+
+        // Action when Accept is clicked
+        cookieAccept.addEventListener('click', () => {
+            localStorage.setItem('cookies-accepted', 'true');
+            cookieConsent.classList.add('hide');
+        });
+
+        // Action when Decline is clicked
+        cookieDecline.addEventListener('click', () => {
+            localStorage.setItem('cookies-accepted', 'false');
+            cookieConsent.classList.add('hide');
+        });
+    }
+
 });
